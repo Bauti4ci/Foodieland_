@@ -7,11 +7,11 @@ function Nav() {
             <nav>
                 {/*   <img src="" alt="" /> */}
                 <ul>
+                    {/* <a href=""></a>
                     <a href=""></a>
                     <a href=""></a>
                     <a href=""></a>
-                    <a href=""></a>
-                    <a href=""></a>
+                    <a href=""></a> */}
                 </ul>
                 <div>
                     {/*  <img src="" alt="" />

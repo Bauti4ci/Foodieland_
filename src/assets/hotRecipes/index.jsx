@@ -7,21 +7,21 @@ function HotRecipes() {
                 <div>
                     <div>
                         <span>
-                            {/*                             <img src="" alt="" />
- */}                            <p></p>
+                            {/*<img src="" alt="" />*/}
+                            <p></p>
                         </span>
                         <h1></h1>
                         <p></p>
                         <div>
                             <span>
-                                {/*                                 <img src="" alt="" /> <p></p>
- */}                            </span>
+                                {/*<img src="" alt="" /> <p></p>*/}
+                            </span>
                             <span>
-                                {/*                                 <img src="" alt="" /> <p></p>
- */}                            </span>
+                                {/*<img src="" alt="" /> <p></p>*/}
+                            </span>
                         </div>
                         <div>
-                            <Author><>Hola</></Author>
+                            <Author></Author>
                         </div>
                     </div>
                 </div>

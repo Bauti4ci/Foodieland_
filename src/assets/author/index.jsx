@@ -1,10 +1,12 @@
-function Author({ children }) {
+function Author() {
     return (
-        <>
-            {
-                children
-            }
-        </>
+        <div>
+            {/* <img src="" alt=""> */}
+            <div>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
     )
 }
 
