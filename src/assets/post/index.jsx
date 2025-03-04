@@ -29,7 +29,7 @@ function Post() {
                 </div>
                 <div>
                     {/* <img src="" alt=""> */}
-                    <p><b></b><b></b></p>
+                    <p><b></b></p>
                 </div>
                 <p>
                     <b></b>

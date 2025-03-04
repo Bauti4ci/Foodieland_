@@ -1,6 +1,19 @@
+import { useState, useEffect } from "react"
 import HotRecipes from "../hotRecipes"
+import Categorie from '../categorie'
+import RecipeBox from '../recipeBox'
+import Post from '../post'
+import Inbox from '../inbox'
 
 function Home() {
+    const [myRecipe, setMyRecipe] = useState([])
+
+    useEffect(() => {
+        fetch('https://api.spoonacular.com/recipes/random?number=2&apiKey=3050a0340db147f8aa71da16e4c24be9')
+            .then(response => response.json())
+            .then(recipes => setMyRecipe(recipes.recipes));
+    });
+
     return (
         <>
             <HotRecipes />
@@ -21,7 +34,12 @@ function Home() {
                     <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
                 </div>
                 <div>
-                    <Recipe />
+                    {myRecipe.map(recipe => {
+                        return (<RecipeBox
+                            key={recipe.id}
+                            recipe={recipe} />)
+                    })}
+
                 </div>
             </section>
             <section>
@@ -30,7 +48,7 @@ function Home() {
                     <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
                     <button><p>Learn More</p></button>
                 </div>
-                {/*<img src="" alt="" />*/}
+                <img src='/ChefOne.png' alt="" />
             </section>
             <section>
                 <div>
@@ -42,7 +60,7 @@ function Home() {
                 </div>
                 <button>
                     <p>Visit Our Instagram</p>
-                    {/* <img src="" alt="" /> */}
+                    <img src="/instagramWhite.svg" alt="" />
                 </button>
             </section>
             <section>
@@ -50,7 +68,12 @@ function Home() {
                     <h6>Try this delicious recipe to make our day</h6>
                     <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
                 </div>
-                <Recipe />
+                {myRecipe.map(recipe => {
+                    return (<RecipeBox
+                        key={recipe.id}
+                        recipe={recipe} />)
+                })}
+
             </section>
             <Inbox />
         </>

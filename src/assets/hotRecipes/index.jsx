@@ -1,27 +1,37 @@
 import Author from '../author';
 
 function HotRecipes() {
+
+
+
+
     return (
         <>
             <section>
                 <div>
                     <div>
                         <span>
-                            {/*<img src="" alt="" />*/}
-                            <p></p>
+                            <img src="/pergamino.png" alt="" />
+                            <p>Hot Recipes</p>
                         </span>
                         <h1></h1>
-                        <p></p>
+                        <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
                         <div>
                             <span>
-                                {/*<img src="" alt="" /> <p></p>*/}
+                                <img src="/timer.svg" alt="" />
+                                <p>minutes</p>
                             </span>
                             <span>
-                                {/*<img src="" alt="" /> <p></p>*/}
+                                <img src="/forknife.svg" alt="" />
+                                <p>type</p>
                             </span>
                         </div>
                         <div>
-                            <Author></Author>
+                            <Author />
+                            <button>
+                                <p>View Recipe</p>
+                                <img src="/playIcon.svg" alt="" />
+                            </button>
                         </div>
                     </div>
                 </div>

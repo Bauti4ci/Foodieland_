@@ -4,24 +4,23 @@ function Footer() {
             <footer>
                 <div>
                     <div>
-                        {/*  <img src="" alt="" /> */}
-                        <p></p>
+                        <img src="/Foodieland.png" alt="" />
+                        <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, </p>
                     </div>
                     <ul>
-                        {/* <a href=""></a>
-                        <a href=""></a>
-                        <a href=""></a>
-                        <a href=""></a>
-                        <a href=""></a> */}
+                        <p>Recipes</p>
+                        <p>Blog</p>
+                        <p>Contact</p>
+                        <p>About Us</p>
                     </ul>
                 </div>
                 <hr />
                 <div>
-                    <p>{/* <a href=""></a>*/} </p>
+                    <p>© 2020 Flowbase. Powered by <b>bautiflow</b></p>
                     <div>
-                        {/* <img src="" alt="" />
-                        <img src="" alt="" />
-                        <img src="" alt="" /> */}
+                        <img src="/facebook.svg" alt="" />
+                        <img src="/twitter.svg" alt="" />
+                        <img src="/instagramBlack.svg" alt="" />
                     </div>
                 </div>
 

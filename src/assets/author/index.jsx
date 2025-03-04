@@ -1,10 +1,11 @@
+
 function Author() {
     return (
         <div>
-            {/* <img src="" alt=""> */}
+            <img src='/johnSmithPhoto.png' alt="" />
             <div>
-                <p></p>
-                <p></p>
+                <p>John Smith</p>
+                <p>15 march 2022</p>
             </div>
         </div>
     )

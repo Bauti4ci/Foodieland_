@@ -1,9 +1,9 @@
 function Categorie() {
     return (
         <span>
-            {/* <img src="" alt="">
-                    <img src="" alt=""> */}
-            <p></p>
+            <img src="/breakfast.png" alt="" />
+            {/*  <img src="" alt=""> */}
+            <p>Breakfast</p>
         </span>
     )
 }
