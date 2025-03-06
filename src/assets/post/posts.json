@@ -1,0 +1,22 @@
+[
+    {
+        "id": "post1",
+        "image": "/post1.png",
+        "caption": "The vegetables dishes need to have certain vitamin for those people"
+    },
+    {
+        "id": "post2",
+        "image": "/post2.png",
+        "caption": "Sweet food can bring someon into happiness as long as they don’t eat to much"
+    },
+    {
+        "id": "post3",
+        "image": "/post3.png",
+        "caption": "hat are you doing before start cooking? prepare the tools or ingredients?"
+    },
+    {
+        "id": "post4",
+        "image": "/post4.png",
+        "caption": "Steak is never wrong, it’s suitable for you who want romantic dinner"
+    }
+]

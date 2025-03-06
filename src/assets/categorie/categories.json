@@ -1,0 +1,38 @@
+[
+    {
+        "id": "c1",
+        "name": "Breakfast",
+        "image": "/Breakfast.png",
+        "class": "breakfast"
+    },
+    {
+        "id": "c2",
+        "name": "Vegan",
+        "image": "/Vegan.png",
+        "class": "vegan"
+    },
+    {
+        "id": "c3",
+        "name": "Meat",
+        "image": "/meat.png",
+        "class": "meat"
+    },
+    {
+        "id": "c4",
+        "name": "Dessert",
+        "image": "/dessert.png",
+        "class": "dessert"
+    },
+    {
+        "id": "c5",
+        "name": "Lunch",
+        "image": "/Lunch.png",
+        "class": "lunch"
+    },
+    {
+        "id": "c6",
+        "name": "Chocolate",
+        "image": "/chocolate.png",
+        "class": "chocolate"
+    }
+]

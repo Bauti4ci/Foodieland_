@@ -4,19 +4,40 @@ import Categorie from '../categorie'
 import RecipeBox from '../recipeBox'
 import Post from '../post'
 import Inbox from '../inbox'
+import posts from '../post/posts.json'
+import categories from '../categorie/categories.json'
 
 function Home() {
-    const [myRecipe, setMyRecipe] = useState([])
+    const [myRecipes, setMyRecipe] = useState([])
+
+    const hotRecipes = myRecipes.slice(0, 1)
+    const mainRecipes = myRecipes.slice(1, 9)
+    const otherRecipes = myRecipes.slice(9)
 
     useEffect(() => {
-        fetch('https://api.spoonacular.com/recipes/random?number=2&apiKey=3050a0340db147f8aa71da16e4c24be9')
-            .then(response => response.json())
-            .then(recipes => setMyRecipe(recipes.recipes));
-    });
+
+        const savedRecipes = JSON.parse(sessionStorage.getItem('jsonRecipes')) || [];
+
+        if (savedRecipes.length === 0) {
+            fetch('https://api.spoonacular.com/recipes/random?number=17&apiKey=3050a0340db147f8aa71da16e4c24be9')
+                .then(response => response.json())
+                .then(recipes => {
+                    sessionStorage.setItem('jsonRecipes', JSON.stringify(recipes.recipes))
+                    setMyRecipe(recipes.recipes)
+                });
+        } else {
+            setMyRecipe(savedRecipes)
+        }
+    }, []);
 
     return (
         <>
-            <HotRecipes />
+            {hotRecipes.map(recipe => {
+                return (<HotRecipes
+                    key={recipe.id}
+                    recipe={recipe} />)
+            })}
+
             <section>
                 <div>
                     <h2>Categories</h2>
@@ -25,7 +46,11 @@ function Home() {
                     </button>
                 </div>
                 <div>
-                    <Categorie />
+                    {categories.map(cate => {
+                        return (<Categorie
+                            key={cate.id}
+                            cate={cate} />)
+                    })}
                 </div>
             </section>
             <section>
@@ -34,7 +59,7 @@ function Home() {
                     <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
                 </div>
                 <div>
-                    {myRecipe.map(recipe => {
+                    {mainRecipes.map(recipe => {
                         return (<RecipeBox
                             key={recipe.id}
                             recipe={recipe} />)
@@ -56,7 +81,14 @@ function Home() {
                     <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
                 </div>
                 <div>
-                    <Post />
+                    {posts.map(post => {
+                        return (<Post
+                            key={post.id}
+                            post={post} />
+
+                        )
+                    })}
+
                 </div>
                 <button>
                     <p>Visit Our Instagram</p>
@@ -68,7 +100,7 @@ function Home() {
                     <h6>Try this delicious recipe to make our day</h6>
                     <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
                 </div>
-                {myRecipe.map(recipe => {
+                {otherRecipes.map(recipe => {
                     return (<RecipeBox
                         key={recipe.id}
                         recipe={recipe} />)

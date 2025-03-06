@@ -1,0 +1,227 @@
+.brandlogo {
+    max-width: 110px;
+    height: auto;
+}
+
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu a:hover {
+    transform: scale(1.05);
+    border-bottom: 1px solid black;
+
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: ease-in-out 0.35s;
+    padding-bottom: 1px;
+
+}
+
+.social {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+}
+
+
+.socialimg {
+    max-width: 17px;
+    max-height: 17px;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+}
+
+.social :hover {
+    transform: scale(1.1);
+}
+
+.langToggle {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    position: absolute;
+    background-color: rgba(231, 250, 254, 1);
+    border: 0px solid;
+    border-radius: 10px;
+    transition: ease-in-out;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    padding: 5px;
+    gap: 5px;
+    top: 120%;
+    left: 1%;
+}
+
+.langToggle:hover {
+    width: 70px;
+    cursor: pointer;
+
+}
+
+
+.langToggle img {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 3px solid white;
+    border-radius: 5px;
+}
+
+
+.langToggle p:hover {
+    display: inline-block;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+header {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: white;
+    z-index: 100;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 1px;
+    background-color: white;
+    position: relative;
+    max-height: 100px;
+}
+
+nav .brandlogo {
+    margin-left: 80px;
+}
+
+nav .menu {
+    gap: 48px;
+}
+
+nav .social {
+    margin-right: 80px;
+}
+
+.minimized {
+    display: none;
+}
+
+.navHr {
+    border: 1px solid rgba(0, 0, 0, 0.1)
+}
+
+@media (max-width: 768px) {
+
+    .extended {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        align-content: center;
+        background: linear-gradient(180deg, rgba(112, 130, 70, 0) 0%, rgba(112, 130, 70, 0.1) 100%);
+        background-color: white;
+        z-index: -5;
+        position: absolute;
+        top: -140%;
+    }
+
+    .view {
+        top: -140%;
+        animation-name: effect;
+        animation-duration: 1s;
+        animation-delay: 0.5s;
+        transition: ease-in;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes effect {
+        from {
+            top: -140%;
+        }
+
+        to {
+            top: 100%;
+        }
+    }
+
+
+    .extended .menu ul {
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .hide {
+        top: 100%;
+        animation-name: closeEffect;
+        animation-duration: 1s;
+        animation-delay: 0.5s;
+        transition: ease-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes closeEffect {
+        from {
+            top: 100%;
+        }
+
+        to {
+            top: -140%;
+        }
+    }
+
+    nav {
+        padding-left: 4%;
+        padding-right: 4%;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav .brandlogo {
+        margin: 0px;
+        width: 33%;
+        height: 33%;
+    }
+
+    nav .menu {
+        display: none;
+    }
+
+    nav .social {
+        display: none;
+    }
+
+    .minimized {
+        display: inline-block;
+        width: 32px;
+        position: absolute;
+        top: 32.5%;
+        right: 5%;
+    }
+
+    .brandlogo {
+        margin: 0 auto;
+    }
+}

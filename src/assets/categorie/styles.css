@@ -1,0 +1,60 @@
+span {
+    display: flex;
+    justify-content: center;
+    width: 180px;
+    height: 152px;
+    margin-top: 80px;
+    padding: 100px 50px 30px 50px;
+    position: relative;
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-radius: 30px;
+    font-weight: 600;
+    color: black;
+    font-size: 1.125rem;
+    transition: ease-in-out 0.5s;
+
+}
+
+.categoriesPhoto {
+    width: 55%;
+    height: 65%;
+    position: absolute;
+    left: 22.22%;
+    top: -26%;
+    box-shadow: 10px;
+    pointer-events: none;
+}
+
+.shadow {
+    opacity: 20%;
+    filter: blur(10px);
+    width: 55%;
+    height: 65%;
+    position: absolute;
+    left: 24%;
+    top: -22%;
+}
+
+.breakfast {
+    background: linear-gradient(180deg, rgba(112, 130, 70, 0) 0%, rgba(112, 130, 70, 0.1) 100%);
+}
+
+.vegan {
+    background: linear-gradient(180deg, rgba(108, 198, 63, 0) 0%, rgba(108, 198, 63, 0.1) 100%);
+}
+
+.meat {
+    background: linear-gradient(180deg, rgba(204, 38, 27, 0) 0%, rgba(204, 38, 27, 0.1) 100%);
+}
+
+.dessert {
+    background: linear-gradient(180deg, rgba(240, 158, 0, 0) 0%, rgba(240, 158, 0, 0.1) 100%);
+}
+
+.lunch {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+.chocolate {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+}

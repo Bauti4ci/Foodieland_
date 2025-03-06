@@ -1,10 +1,12 @@
-function Categorie() {
+import "./styles.css"
+
+function Categorie({ cate }) {
     return (
-        <span>
-            <img src="/breakfast.png" alt="" />
-            {/*  <img src="" alt=""> */}
-            <p>Breakfast</p>
-        </span>
+        <span className={cate.class}>
+            <img src={cate.image} alt="" className="categoriesPhoto" />
+            <img src={cate.image} alt="" className="shadow" />
+            <p>{cate.name}</p>
+        </span >
     )
 }
 

@@ -1,40 +1,38 @@
-function Post() {
+function Post({ post }) {
     return (
         <article>
             <div>
                 <div>
-                    {/* <img src="" alt=""> */}
+                    <img src="/foodiePFP.png" alt="" />
                     <span>
-                        <p>
-                            {/* <img src="" alt=""> */}
-                        </p>
-                        <p></p>
+                        <p>Foodieland. <img src="/verifed.svg" alt="" /></p>
+                        <p>Tokio, Japan</p>
                     </span>
                 </div>
-                {/* <img src="" alt=""> */}
+                <img src="/moreicon.svg" alt="" />
             </div>
 
-            {/* <img src="" alt=""> */}
-            {/* <img src="" alt=""> */}
+            <div>
+                <img src={post.image} alt="" />
+                <img src="Svg/post/photonum.svg" alt="" />
+            </div>
 
             <div>
                 <div>
                     <div>
-                        {/* <img src="" alt=""> */}
-                        {/* <img src="" alt=""> */}
-                        {/* <img src="" alt=""> */}
+                        <img src="/like.svg" alt="" />
+                        <img src="/comment.svg" alt="" />
+                        <img src="/share.svg" alt="" />
                     </div>
-                    {/* <img src="" alt=""> */}
-                    {/* <img src="" alt=""> */}
+                    <img src="/pagination.svg" alt="" />
+                    <img src="/save.svg" alt="" />
                 </div>
                 <div>
-                    {/* <img src="" alt=""> */}
-                    <p><b></b></p>
+                    <img src="/likePFP.png" alt="" />
+                    <p>Liked by <b>craig_love</b> and <b>44,686 others</b></p>
                 </div>
-                <p>
-                    <b></b>
-                </p>
-                <p></p>
+                <p><b>Foodieland.</b> {post.caption}</p>
+                <p>September 19</p>
             </div>
         </article>
     )
