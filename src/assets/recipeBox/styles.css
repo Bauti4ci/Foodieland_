@@ -1,42 +1,3 @@
-.recipesSec {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: start;
-    gap: 96px;
-    margin-top: 183px;
-
-}
-
-.recipesTop {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    justify-content: center;
-    align-content: center;
-}
-
-h3 {
-    font-size: 3rem;
-    font-weight: 600;
-    text-align: center;
-
-}
-
-.recipesTop p {
-    font-size: 1rem;
-    font-weight: 400;
-    text-align: center;
-}
-
-.recipesGrid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    width: 100%;
-}
-
 .recipesBox {
     display: flex;
     flex-direction: column;
@@ -99,15 +60,16 @@ h3 {
     justify-content: flex-start;
     gap: 16px;
     pointer-events: none;
+    max-height: 30px;
 }
 
-.recipesDetails span {
+.detail {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 8px;
     width: auto;
-    height: 40px;
+    max-height: 30px;
     text-align: start;
 }
 

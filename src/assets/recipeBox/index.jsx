@@ -1,42 +1,33 @@
-import { useState } from "react"
 import './styles.css'
 
 
-function RecipeBox({ recipe }) {
-    const [myFavorites, setMyFavorites] = useState([])
+function RecipeBox({ recipe, setMyFavorites }) {
 
     const favorites = () => {
-        setMyFavorites(JSON.parse(localStorage.getItem('favorites')))
-        const position = myFavorites.indexOf(recipe.id)
-
-        if (position >= 0) {
-            myFavorites.splice(position, 1)
-        } else {
-            myFavorites.push(recipe.id)
-        }
-
-        localStorage.setItem('favorites', JSON.stringify(myFavorites));
+        setMyFavorites(prevFavorites => {
+            if (prevFavorites.includes(recipe.id)) {
+                return prevFavorites.filter(id => id !== recipe.id)
+            } else {
+                return [...prevFavorites, recipe.id]
+            }
+        })
     }
-
-
 
     const noPhoto = '/noPhoto.jpg'
 
     return (
-        <div className="recipesBox recipes" id={recipe.id}>
+        <div className="recipesBox" id={recipe.id}>
             <div>
-                <div>
-                    <img src={recipe.image ? recipe.image : noPhoto} alt="" className="gridPhoto" />
-                    <img src="/notFavorite.svg" alt="" className="saves heart" onClick={favorites} />
-                </div>
-                <p className="recipeName">{recipe.title}</p>
+                <img src={recipe.image ? recipe.image : noPhoto} alt="" className="gridPhoto" />
+                <img src="/notFavorite.svg" alt="" className="saves heart" onClick={favorites} />
             </div>
+            <p className="recipeName">{recipe.title}</p>
             <div className="recipesDetails">
-                <span>
+                <span className='detail'>
                     <img src="/timer.svg" alt="" className="recipesIcons" />
                     <p>{recipe.readyInMinutes}Minutes</p>
                 </span>
-                <span>
+                <span className='detail'>
                     <img src="/forknife.svg" alt="" className="recipesIcons" />
                     <p>{recipe.dishTypes[0]}</p>
                 </span>

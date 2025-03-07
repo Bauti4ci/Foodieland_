@@ -9,7 +9,9 @@ import categories from '../categorie/categories.json'
 
 function Home() {
     const [myRecipes, setMyRecipe] = useState([])
-
+    const [myFavorites, setMyFavorites] = useState(() => {
+        return JSON.parse(localStorage.getItem('favorites')) || []
+    })
     const hotRecipes = myRecipes.slice(0, 1)
     const mainRecipes = myRecipes.slice(1, 9)
     const otherRecipes = myRecipes.slice(9)
@@ -29,6 +31,11 @@ function Home() {
             setMyRecipe(savedRecipes)
         }
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem('favorites', JSON.stringify(myFavorites));
+    }, [myFavorites])
+
 
     return (
         <>
@@ -62,7 +69,9 @@ function Home() {
                     {mainRecipes.map(recipe => {
                         return (<RecipeBox
                             key={recipe.id}
-                            recipe={recipe} />)
+                            recipe={recipe}
+                            myFavorites={myFavorites}
+                            setMyFavorites={setMyFavorites} />)
                     })}
 
                 </div>
@@ -103,7 +112,9 @@ function Home() {
                 {otherRecipes.map(recipe => {
                     return (<RecipeBox
                         key={recipe.id}
-                        recipe={recipe} />)
+                        recipe={recipe}
+                        myFavorites={myFavorites}
+                        setMyFavorites={setMyFavorites} />)
                 })}
 
             </section>
