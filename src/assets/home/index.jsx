@@ -7,34 +7,21 @@ import Inbox from '../inbox'
 import posts from '../post/posts.json'
 import categories from '../categorie/categories.json'
 
-function Home() {
-    const [myRecipes, setMyRecipe] = useState([])
+function Home({ myRecipes }) {
     const [myFavorites, setMyFavorites] = useState(() => {
         return JSON.parse(localStorage.getItem('favorites')) || []
     })
+
     const hotRecipes = myRecipes.slice(0, 1)
     const mainRecipes = myRecipes.slice(1, 9)
     const otherRecipes = myRecipes.slice(9)
 
-    useEffect(() => {
-
-        const savedRecipes = JSON.parse(sessionStorage.getItem('jsonRecipes')) || [];
-
-        if (savedRecipes.length === 0) {
-            fetch('https://api.spoonacular.com/recipes/random?number=17&apiKey=3050a0340db147f8aa71da16e4c24be9')
-                .then(response => response.json())
-                .then(recipes => {
-                    sessionStorage.setItem('jsonRecipes', JSON.stringify(recipes.recipes))
-                    setMyRecipe(recipes.recipes)
-                });
-        } else {
-            setMyRecipe(savedRecipes)
-        }
-    }, []);
 
     useEffect(() => {
         localStorage.setItem('favorites', JSON.stringify(myFavorites));
     }, [myFavorites])
+
+    console.log(myRecipes)
 
 
     return (
@@ -71,7 +58,9 @@ function Home() {
                             key={recipe.id}
                             recipe={recipe}
                             myFavorites={myFavorites}
-                            setMyFavorites={setMyFavorites} />)
+                            setMyFavorites={setMyFavorites}
+                            url={`/recipe/${recipe.id}`}
+                        />)
                     })}
 
                 </div>

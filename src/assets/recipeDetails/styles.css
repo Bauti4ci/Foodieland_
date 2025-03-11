@@ -1,0 +1,656 @@
+main {
+    margin: 0px 20px;
+    margin-top: 130px;
+}
+
+.loadingScreen {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 200px;
+}
+
+.loadingScreen h1 {
+    font-size: 3rem;
+}
+
+.header {
+    display: flex;
+    margin-top: 80px;
+    align-items: center;
+    align-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    gap: 53px;
+    width: 80%;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+.author {
+    align-items: center;
+    align-content: center;
+    width: 26.63%;
+    min-width: 165px;
+    gap: 10px;
+    text-align: start;
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 1);
+}
+
+.date {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+
+
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+    align-content: center;
+}
+
+.detailsRight {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    margin-left: 17%;
+}
+
+.detail {
+    display: flex;
+    min-width: 113px;
+    gap: 8px;
+    align-items: center;
+    align-content: center;
+}
+
+.dividers {
+    height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.timeType {
+    font-size: 0.75rem;
+    font-weight: 500;
+
+}
+
+.time {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+
+}
+
+.foodType {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+
+}
+
+.icons {
+    width: 21.24%;
+    height: auto;
+    min-width: 20px;
+}
+
+.options {
+    width: 15%;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+
+}
+
+.buttons {
+    display: flex;
+    gap: 32px;
+}
+
+.optionsBtn {
+    background-color: transparent;
+    border: none;
+}
+
+.optionsBtn img {
+    width: 80px;
+    height: auto;
+}
+
+.interaction p {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: rgba(0, 0, 0, 1);
+    margin: 0 auto;
+}
+
+.interaction {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h6 {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2.25rem;
+}
+
+.recipePincipal {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 64px;
+}
+
+.principalHeader {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.recipeVid {
+    width: 65.6%;
+    height: auto;
+    max-height: 600px;
+    position: relative;
+}
+
+.recipeVidImg {
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    max-width: 840px;
+    max-height: 600px;
+}
+
+.recipeVidIcon {
+    position: absolute;
+    width: 14.3%;
+    height: auto;
+    top: 40%;
+    left: 42.5%;
+    transition: all ease-in-out;
+}
+
+.recipeVidIcon:hover {
+    transform: scale(1.1);
+}
+
+.nutrition {
+    width: 31.25%;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(231, 250, 254, 1);
+    border-radius: 25px;
+    padding: 32px;
+}
+
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.nutData {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.nutritionBox hr {
+    border: 1px solid rgba(0, 0, 0, 0.1)
+}
+
+.nutDataType {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.nutDataValue {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+}
+
+.nutDescription {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.principalDescription {
+    margin-top: 40px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.descriptionLoader {
+    background-color: rgba(175, 174, 174, 0.281);
+    width: 1300px;
+    height: 140px;
+    border-radius: 30px;
+
+}
+
+.ingredients {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.ingredientsLoader {
+    margin-top: 20px;
+    width: 65%;
+    max-width: 840px;
+    height: 790px;
+    background-color: rgba(175, 174, 174, 0.281);
+    border-radius: 30px;
+}
+
+h3 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+
+}
+
+.list {
+    width: 65.6%;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.list div {
+    width: 100%;
+}
+
+.list ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.ing {
+    flex-direction: column;
+}
+
+.ing ul {
+    margin-top: 33px;
+}
+
+.ing span {
+    padding: 15px 0;
+}
+
+.ing p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.check {
+    border-radius: 100%;
+    border: 2px solid rgba(219, 226, 229, 1);
+    border-radius: 100%;
+}
+
+.ing label {
+    font-size: 1.125rem;
+    font-weight: 400;
+    text-align: left;
+    margin-left: 24px;
+}
+
+.otherRecipesInDetails {
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+}
+
+.otherRecipesInDetails div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.miniRecipes {
+    display: flex;
+    justify-content: space-between;
+    max-width: 410px;
+    align-items: center;
+    align-content: center;
+    gap: 24px;
+}
+
+.miniRecipesLoader {
+    width: 410px;
+    height: 120px;
+    background-color: rgba(175, 174, 174, 0.281);
+    border-radius: 30px;
+}
+
+.miniRecipes img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.miniRecipes span {
+    display: flex;
+    flex-direction: column;
+    max-width: 196px;
+    max-height: 90px;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.miniRecipesName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+}
+
+.miniRecipesAuthor {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.6);
+
+}
+
+.ads {
+    max-width: 400px;
+    max-height: 434px;
+
+}
+
+.directions {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin-top: 15px;
+}
+
+.steps {
+    max-width: 840px;
+}
+
+.steps input {
+    margin-bottom: 24px;
+}
+
+.steps label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 24px;
+}
+
+.steps p {
+    margin-left: 48px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.steps img {
+    margin: 48px 0;
+    margin-left: 48px;
+    width: 95%;
+}
+
+.directions hr {
+    max-width: 840px;
+    border: 1px solid rgba(0, 0, 0, 0.1)
+}
+
+
+
+
+.recipesGrid {
+    margin-top: 100px;
+}
+
+
+@media (max-width: 1030px) {
+    .header {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    section {
+        width: 95%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .title {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .details {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .detailsRight {
+        margin: auto 6px;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .hidden {
+        display: flex;
+    }
+
+    .recipePincipal {
+        width: 90%;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    .options {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .principalHeader {
+        justify-content: center;
+        align-content: center;
+    }
+
+    .recipeVid {
+        width: 90%;
+    }
+
+    .nutrition {
+        width: 80%;
+    }
+
+    .nutritionBox {
+        margin-bottom: 24px;
+    }
+
+    .principalDescription {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .descriptionLoader {
+        width: 600px;
+        height: 140px;
+    }
+
+    .ingredients {
+        width: 95%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+
+    .otherRecipesInDetails {
+        width: 90%;
+        justify-content: center;
+    }
+
+    .otherRecipesInDetails div {
+        justify-content: center;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+
+    .directions {
+        justify-content: center;
+        margin-top: 40px;
+        width: 90%;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .steps {
+        width: 100%;
+    }
+
+    .steps img {
+        width: 85%;
+    }
+
+
+}
+
+@media (max-width: 767px) {
+    .name {
+        font-size: 0.85rem;
+    }
+
+    .date {
+        font-size: 0.7rem;
+    }
+
+    .detailsRight {
+        gap: 15px;
+    }
+
+    .detail {
+        min-width: auto;
+    }
+
+
+    .timeType {
+        font-size: 0.65rem;
+    }
+
+    .time {
+        font-size: 0.75rem;
+    }
+
+    .foodType {
+        font-size: 0.75rem;
+    }
+
+    .buttons {
+        gap: 15px;
+    }
+
+    .optionsBtn img {
+        width: 50px;
+        height: auto;
+    }
+
+    .interaction {
+        gap: 10px;
+    }
+
+    .interaction p {
+        font-size: 0.75rem;
+    }
+
+    .principalDescription {
+        font-size: 0.85rem;
+    }
+
+    .descriptionLoader {
+        width: 330px;
+        height: 140px;
+    }
+
+    .ads {
+        max-width: 350px;
+    }
+
+    .steps label {
+        font-size: 1.3rem;
+    }
+
+    .ing label {
+        font-size: 0.9rem;
+    }
+
+    .steps p {
+        font-size: 0.9rem;
+    }
+}

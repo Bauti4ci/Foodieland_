@@ -1,7 +1,10 @@
+import { Link, useNavigate } from 'react-router-dom'
 import './styles.css'
 
 
-function RecipeBox({ recipe, setMyFavorites }) {
+function RecipeBox({ recipe, setMyFavorites, url }) {
+
+    let navigate = useNavigate();
 
     const favorites = () => {
         setMyFavorites(prevFavorites => {
@@ -16,7 +19,7 @@ function RecipeBox({ recipe, setMyFavorites }) {
     const noPhoto = '/noPhoto.jpg'
 
     return (
-        <div className="recipesBox" id={recipe.id}>
+        <div className="recipesBox" id={recipe.id} onClick={() => navigate(url)}>
             <div>
                 <img src={recipe.image ? recipe.image : noPhoto} alt="" className="gridPhoto" />
                 <img src="/notFavorite.svg" alt="" className="saves heart" onClick={favorites} />
