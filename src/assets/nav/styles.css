@@ -3,7 +3,6 @@
     height: auto;
 }
 
-
 .menu {
     display: flex;
     justify-content: space-between;
@@ -84,7 +83,7 @@
     display: inline-block;
 }
 
-ul {
+.menu ul {
     display: flex;
     justify-content: space-between;
     gap: 16px;
@@ -129,7 +128,15 @@ nav .social {
     border: 1px solid rgba(0, 0, 0, 0.1)
 }
 
+.dynamic {
+    display: none;
+}
+
 @media (max-width: 768px) {
+
+    .dynamic {
+        display: flex;
+    }
 
     .extended {
         display: flex;
@@ -173,7 +180,7 @@ nav .social {
         text-align: center;
     }
 
-    .hide {
+    .hideNav {
         top: 100%;
         animation-name: closeEffect;
         animation-duration: 1s;

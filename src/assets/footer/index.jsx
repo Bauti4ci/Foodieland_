@@ -10,14 +10,14 @@ function Footer() {
                             <img src="/Foodieland.png" alt="Foodieland" className="brandlogo" />
                             <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, </p>
                         </div>
-                        <nav className="menu footerMenu">
+                        <div className="menu footerMenu">
                             <ul>
                                 <a className="navbtn">Recipies</a>
                                 <a className="navbtn">Blog</a>
                                 <a className="navbtn">Contact</a>
                                 <a className="navbtn">About us</a>
                             </ul>
-                        </nav>
+                        </div>
                     </div>
                     <hr className="footerHr" />
                     <div className="bottomFooter">

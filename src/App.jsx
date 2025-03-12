@@ -19,11 +19,11 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Page />}>
-          <Route index element={<Home setMyFavorites={setMyFavorites} />}
+          <Route index element={<Home setMyFavorites={setMyFavorites} myFavorites={myFavorites} />}
           />
           <Route
             path='/recipe/:id'
-            element={<RecipeDetails setMyFavorites={setMyFavorites} />}
+            element={<RecipeDetails setMyFavorites={setMyFavorites} myFavorites={myFavorites} />}
           />
         </Route>
       </Routes>

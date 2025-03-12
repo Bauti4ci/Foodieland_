@@ -4,26 +4,29 @@ import { useEffect, useState } from "react";
 import RecipeBox from '../recipeBox'
 import Inbox from '../inbox'
 import Author from '../author';
+import MiniRecipes from "../miniRecipes";
 
-function RecipeDetails({ setMyFavorites }) {
+function RecipeDetails({ setMyFavorites, myFavorites }) {
     let { id } = useParams();
     const [myRecipe, setMyRecipe] = useState({});
     const [secRecipes, setSecRecipes] = useState([]);
 
-/*     const miniSideRecipes = secRecipes.slice(0, 3)
- */    const otherRecipes = secRecipes.slice(3)
+    const miniSideRecipes = secRecipes.slice(0, 3)
+    const otherRecipes = secRecipes.slice(3)
 
 
     const noPhoto = '/noPhoto.jpg'
 
     useEffect(() => {
-        fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=3050a0340db147f8aa71da16e4c24be9`)
+        fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=178a79a57ae64393823744c2e5e76fa5`)
             .then(response => response.json())
             .then(recipe => {
                 setMyRecipe(recipe)
             });
 
-    }, []);
+    }, [id]);
+
+    console.log(myRecipe)
 
     useEffect(() => {
 
@@ -177,7 +180,13 @@ function RecipeDetails({ setMyFavorites }) {
                 </div>
                 <div className="otherRecipesInDetails">
                     <div className="otherRecipesInSection">
-
+                        {miniSideRecipes.map(recipe => {
+                            return (<MiniRecipes
+                                key={recipe.id}
+                                recipe={recipe}
+                                url={`/recipe/${recipe.id}`}
+                            />)
+                        })}
                     </div>
                     <img src="/ad.png" alt="" className="ads" />
                 </div>

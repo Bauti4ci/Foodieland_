@@ -7,7 +7,7 @@ footer {
 }
 
 .footer {
-    max-width: 1300px;
+    max-width: 1400px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -71,7 +71,7 @@ footer {
 @media (max-width: 1024px) {
 
     .footer {
-        width: 85%;
+        width: 70%;
     }
 
     .topFooter {
@@ -93,6 +93,10 @@ footer {
         text-align: center;
         width: 100%;
         gap: 25px;
+    }
+
+    .footerLeft p {
+        text-align: center;
     }
 
     .bottomFooter {

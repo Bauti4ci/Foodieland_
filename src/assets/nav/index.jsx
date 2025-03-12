@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom"
 import "./styles.css"
+import { useState } from "react"
 
 function Nav() {
+    const [menuImg, setMenuImg] = useState("/menu.svg")
+    const [navClass, setNavClass] = useState(`extended dynamic`)
+
+    const openMenu = () => {
+        if (menuImg === "/menu.svg") {
+            setMenuImg("/closingX.svg")
+            setNavClass(`extended dynamic view`)
+        } else {
+            setMenuImg("/menu.svg")
+            setNavClass(`extended dynamic hideNav`)
+        }
+
+    }
 
     return (
         <header id="header">
@@ -23,16 +37,12 @@ function Nav() {
                     <img src="/twitter.svg" alt="Twitter" className="socialimg" />
                     <img src="/instagramBlack.svg" alt="Instagram" className="socialimg" />
                 </div>
-                <img src="Svg/nav/menu.svg" alt="" className="minimized" id="openClose" />
-                {/* <button className="langToggle">
-                    <img src="/toggle.svg" alt="" />
-                    <p>EN</p>
-                </button> */}
+                <img src={menuImg} alt="" className="minimized" onClick={openMenu} />
             </nav>
 
             <hr className="navHr" />
 
-            <div className="extended" id="dynamic">
+            <div className={navClass}>
                 <div className="menu">
                     <ul>
                         <Link to="/" className="navbtn">Home</Link>

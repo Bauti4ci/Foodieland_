@@ -96,3 +96,121 @@ h1 {
     right: -14%;
     top: 50px;
 }
+
+.mobileStart {
+    display: none;
+}
+
+.mobileDetails {
+    display: flex;
+    margin-left: 8px;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 16px;
+    pointer-events: none;
+}
+
+.mobileDetails span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    width: auto;
+    height: 40px;
+    text-align: start;
+}
+
+.mobileIcons {
+    width: 1.6rem;
+    height: auto;
+}
+
+@media (max-width: 1024px) {
+
+    .hiddenMobile {
+        display: none;
+    }
+
+    .mobileStart {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 95%;
+        height: auto;
+        gap: 15px;
+        background: linear-gradient(180deg, rgba(231, 249, 253, 0) 0%, #E7F9FD 100%);
+        padding: 16px 16px 32px 16px;
+        border: 0px solid rgba(0, 0, 0, 0);
+        border-radius: 30px;
+    }
+
+    .startImgDiv {
+        position: relative;
+        height: auto;
+        width: 100%;
+    }
+
+    .mobileStartImg {
+        width: 100%;
+        height: auto;
+        border: 0px solid rgba(0, 0, 0, 0);
+        border-radius: 25px;
+        margin-bottom: 20px;
+    }
+
+    .mobileBadge {
+        width: 27.5%;
+        max-width: 100px;
+        height: auto;
+        bottom: -2%;
+        right: -1%;
+        position: absolute;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        height: auto;
+    }
+
+    .startContext {
+        font-size: 0.8rem;
+        color: rgb(105, 105, 105);
+
+    }
+
+    .mobileStart .recipesDetails span {
+        font-size: 1rem;
+    }
+
+    .startFooter {
+        justify-content: space-between;
+    }
+
+    .author {
+        align-content: center;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+    }
+
+    .author img {
+        width: 25%;
+        max-width: 65px;
+        height: auto;
+    }
+
+
+    .authorName {
+        font-size: 1rem;
+        gap: 2px
+    }
+
+    .startFooter .btn {
+        height: auto;
+        font-size: 0.75rem;
+        border: 0px solid;
+        padding: 16px 1.5rem;
+        min-width: auto;
+    }
+}

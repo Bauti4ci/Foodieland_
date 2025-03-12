@@ -9,7 +9,7 @@ import categories from '../categorie/categories.json'
 import "./styles.css"
 
 
-function Home({ setMyFavorites }) {
+function Home({ setMyFavorites, myFavorites }) {
     const [myRecipes, setMyRecipes] = useState([])
 
     const hotRecipes = myRecipes.slice(0, 1)
@@ -21,7 +21,7 @@ function Home({ setMyFavorites }) {
         const savedRecipes = JSON.parse(sessionStorage.getItem('jsonRecipes')) || [];
 
         if (savedRecipes.length === 0) {
-            fetch('https://api.spoonacular.com/recipes/random?number=17&apiKey=3050a0340db147f8aa71da16e4c24be9')
+            fetch('https://api.spoonacular.com/recipes/random?number=17&apiKey=178a79a57ae64393823744c2e5e76fa5')
                 .then(response => response.json())
                 .then(recipes => {
                     sessionStorage.setItem('jsonRecipes', JSON.stringify(recipes.recipes))
@@ -71,6 +71,7 @@ function Home({ setMyFavorites }) {
                         return (<RecipeBox
                             key={recipe.id}
                             recipe={recipe}
+                            myFavorites={myFavorites}
                             setMyFavorites={setMyFavorites}
                             url={`/recipe/${recipe.id}`}
                         />)

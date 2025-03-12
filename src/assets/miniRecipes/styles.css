@@ -1,0 +1,44 @@
+.miniRecipes {
+    display: flex;
+    justify-content: space-between;
+    max-width: 410px;
+    align-items: center;
+    align-content: center;
+    gap: 24px;
+}
+
+.miniRecipes img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.miniRecipes span {
+    display: flex;
+    flex-direction: column;
+    max-width: 196px;
+    max-height: 90px;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.miniRecipesName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+}
+
+.miniRecipesAuthor {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+    .miniRecipes img {
+        max-width: 160px;
+    }
+
+}

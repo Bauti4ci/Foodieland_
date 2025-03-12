@@ -2,7 +2,7 @@
     {
         "id": "c1",
         "name": "Breakfast",
-        "image": "/Breakfast.png",
+        "image": "/breakfast.png",
         "class": "breakfast"
     },
     {

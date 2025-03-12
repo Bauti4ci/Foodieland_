@@ -1,8 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
 import './styles.css'
+import { useEffect, useState } from 'react';
 
 
-function RecipeBox({ recipe, setMyFavorites, url }) {
+function RecipeBox({ recipe, setMyFavorites, url, myFavorites }) {
+    const [favBtn, setFavBtn] = useState("/notFavorite.svg")
 
     let navigate = useNavigate();
 
@@ -20,10 +22,10 @@ function RecipeBox({ recipe, setMyFavorites, url }) {
 
     return (
         <div className="recipesBox" id={recipe.id} onClick={() => navigate(url)}>
-            <div>
-                <img src={recipe.image ? recipe.image : noPhoto} alt="" className="gridPhoto" />
-                <img src="/notFavorite.svg" alt="" className="saves heart" onClick={favorites} />
-            </div>
+
+            <img src={recipe.image ? recipe.image : noPhoto} alt="" className="gridPhoto" />
+            <img src={favBtn} alt="" className={`saves heart`} onClick={favorites} />
+
             <p className="recipeName">{recipe.title}</p>
             <div className="recipesDetails">
                 <span className='detail'>
