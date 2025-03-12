@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./styles.css"
 
 function Nav() {
@@ -9,11 +10,11 @@ function Nav() {
 
                 <div className="menu">
                     <ul>
-                        <a href="#start" className="navbtn">Home</a>
-                        <a href="#recipes" className="navbtn">Recipies</a>
-                        <a href="#posts" className="navbtn">Blog</a>
-                        <a href="#inbox" className="navbtn">Contact</a>
-                        <a href="#learn" className="navbtn">About us</a>
+                        <Link to="/" className="navbtn">Home</Link>
+                        <Link to="/" className="navbtn">Recipies</Link>
+                        <Link to="/" className="navbtn">Blog</Link>
+                        <Link to="/" className="navbtn">Contact</Link>
+                        <Link to="/" className="navbtn">About us</Link>
                     </ul>
                 </div>
 
@@ -34,11 +35,11 @@ function Nav() {
             <div className="extended" id="dynamic">
                 <div className="menu">
                     <ul>
-                        <a className="navbtn">Home</a>
-                        <a className="navbtn">Recipies</a>
-                        <a className="navbtn">Blog</a>
-                        <a className="navbtn">Contact</a>
-                        <a className="navbtn">About us</a>
+                        <Link to="/" className="navbtn">Home</Link>
+                        <Link to="/" className="navbtn">Recipies</Link>
+                        <Link to="/" className="navbtn">Blog</Link>
+                        <Link to="/" className="navbtn">Contact</Link>
+                        <Link to="/" className="navbtn">About us</Link>
                     </ul>
                 </div>
                 <div className="social">

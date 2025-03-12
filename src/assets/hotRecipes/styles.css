@@ -1,0 +1,98 @@
+.start {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 50px;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 40px;
+    overflow: hidden;
+    min-height: 640px;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-color: rgba(231, 250, 254, 1);
+}
+
+.leftstart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: 50%;
+    background-color: rgba(231, 250, 254, 1);
+    padding: 50px;
+    position: relative;
+
+}
+
+.firstbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    height: 45px;
+    padding: 18px;
+    border: 0px solid black;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.041);
+}
+
+.firstbtn img {
+    width: 24px;
+    height: 24px;
+}
+
+.firstbtn p {
+    color: black;
+    font-size: 1rem;
+    text-align: center;
+}
+
+h1 {
+    width: auto;
+    font-size: 4rem;
+}
+
+.subH {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.secondbtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    width: auto;
+    padding: 8px 16px 8px 16px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 25px;
+}
+
+.startFooter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: transparent;
+}
+
+.badge {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    right: -14%;
+    top: 50px;
+}

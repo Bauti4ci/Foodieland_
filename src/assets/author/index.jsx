@@ -1,11 +1,12 @@
+import './styles.css'
 
-function Author() {
+function Author({ classType }) {
     return (
-        <div>
-            <img src='/johnSmithPhoto.png' alt="" />
-            <div>
-                <p>John Smith</p>
-                <p>15 march 2022</p>
+        <div className={classType}>
+            <img src="/johnSmithPhoto.png" alt="" />
+            <div className="authorName">
+                <p className="name">John Smith</p>
+                <p className="date">15 March 2022</p>
             </div>
         </div>
     )

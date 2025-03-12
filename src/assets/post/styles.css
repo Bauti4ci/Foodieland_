@@ -1,0 +1,134 @@
+.postBox {
+    display: flex;
+    flex-direction: column;
+    max-width: 290px;
+    max-height: 445.44px;
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
+    transition: ease-in-out 0.6s;
+}
+
+.postHeader {
+    display: flex;
+    justify-content: space-between;
+    height: 9.375%;
+    width: 100%;
+    padding-left: 7.73px;
+    padding-top: 8.51px;
+    padding-bottom: 8.51px;
+    padding-right: 11.6px;
+    pointer-events: none;
+}
+
+.postHeaderLeft {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    gap: 5px;
+}
+
+.postFoodie {
+    /* Valores en % */
+    width: 24.75px;
+    height: 24.75px;
+    border-radius: 100%;
+}
+
+.postHeaderLeft span {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.postAuthor {
+    font-size: 0.628rem;
+    font-weight: 600;
+}
+
+.verifed {
+    /* Valores en % */
+    width: 7.65px;
+    height: 7.58px;
+}
+
+.postLocation {
+    font-size: 0.532rem;
+    font-weight: 400;
+}
+
+.moreIcon {
+    /* Valores en % */
+    width: 13px;
+    height: 5px;
+    margin-top: 11.21px;
+}
+
+
+.postImg {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.photoNum {
+    position: absolute;
+    top: 12.5%;
+    right: 4%;
+    pointer-events: none;
+}
+
+.postFoot {
+    display: flex;
+    flex-direction: column;
+    height: 25.52%;
+    width: 100%;
+    padding-left: 10.83px;
+    padding-right: 9.81px;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.postInteraction {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 7px;
+    position: relative;
+}
+
+.pagination {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
+
+.likes {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.likes img {
+    /* Valores en % */
+    width: 13.15px;
+    height: 13.15px;
+    border-radius: 100%;
+}
+
+.likes p {
+    font-size: 0.628rem;
+    font-weight: 400;
+}
+
+.caption {
+    font-size: 0.628rem;
+    font-weight: 400;
+}
+
+.postDate {
+    font-size: 0.532rem;
+    font-weight: 400;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.4);
+}

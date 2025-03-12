@@ -1,44 +1,68 @@
 import { useParams } from "react-router";
 import './styles.css'
 import { useEffect, useState } from "react";
+import RecipeBox from '../recipeBox'
+import Inbox from '../inbox'
+import Author from '../author';
 
-function RecipeDetails({ myRecipes }) {
+function RecipeDetails({ setMyFavorites }) {
     let { id } = useParams();
-    const [recipe, setRecipe] = useState([]);
+    const [myRecipe, setMyRecipe] = useState({});
+    const [secRecipes, setSecRecipes] = useState([]);
+
+/*     const miniSideRecipes = secRecipes.slice(0, 3)
+ */    const otherRecipes = secRecipes.slice(3)
+
+
+    const noPhoto = '/noPhoto.jpg'
 
     useEffect(() => {
-        let detailsRecipe = myRecipes.find((recipe) => recipe.id === Number(id));
+        fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=3050a0340db147f8aa71da16e4c24be9`)
+            .then(response => response.json())
+            .then(recipe => {
+                setMyRecipe(recipe)
+            });
 
-        if (!detailsRecipe) {
-            const savedDetails = JSON.parse(sessionStorage.getItem('jsonRecipes')) || [];
-            detailsRecipe = savedDetails.find((recipe) => recipe.id === Number(id));
+    }, []);
+
+    useEffect(() => {
+
+        const savedSecRecipes = JSON.parse(sessionStorage.getItem('jsonSecRecipes')) || [];
+
+        if (savedSecRecipes.length === 0) {
+            fetch('https://api.spoonacular.com/recipes/random?number=7&apiKey=3050a0340db147f8aa71da16e4c24be9')
+                .then(response => response.json())
+                .then(recipes => {
+                    sessionStorage.setItem('jsonSecRecipes', JSON.stringify(recipes.recipes))
+                    setSecRecipes(recipes.recipes)
+                });
         } else {
-            setRecipe(detailsRecipe);
+            setSecRecipes(savedSecRecipes)
         }
+    }, []);
 
-    }, [id, myRecipes]);
+    console.log(myRecipe);
+
+
+
 
 
     return (
         <main>
             <section className="header">
                 <div className="title">
-                    <h1>{recipe.title}</h1>
+                    <h1>{myRecipe.title}</h1>
                     <div className="details">
-                        <div className="author hide">
-                            <img src="Imagenes/start/fotoJohnSmith.png" alt="" />
-                            <div className="authorName">
-                                <p className="name">John Smith</p>
-                                <p className="date">15 March 2022</p>
-                            </div>
-                        </div>
+                        <Author
+                            classType={`author hide`}
+                        />
                         <div className="detailsRight">
                             <span className="dividers hide"></span>
                             <div className="detail">
                                 <img src="/timer.svg" alt="" className="icons" />
                                 <div className="detailContext">
                                     <p className="timeType">PREP TIME</p>
-                                    <p className="time">{recipe.preparationMinutes}</p>
+                                    <p className="time">{myRecipe.preparationMinutes}</p>
                                 </div>
                             </div>
                             <span className="dividers"></span>
@@ -46,13 +70,13 @@ function RecipeDetails({ myRecipes }) {
                                 <img src="/timer.svg" alt="" className="icons" />
                                 <div className="detailContext">
                                     <p className="timeType">COCK TIME</p>
-                                    <p className="time">{recipe.cookingMinutes}</p>
+                                    <p className="time">{myRecipe.cookingMinutes}</p>
                                 </div>
                             </div>
                             <span className="dividers"></span>
                             <div className="detail">
                                 <img src="/forknife.svg" alt="" className="icons" />
-                                <p className="foodType">{recipe.dishTypes[0]}</p>
+                                <p className="foodType">{myRecipe?.dishTypes?.[0]}</p>
                             </div>
 
 
@@ -60,13 +84,9 @@ function RecipeDetails({ myRecipes }) {
                     </div>
                 </div>
                 <div className="options">
-                    <div className="author hidden">
-                        <img src="Imagenes/start/fotoJohnSmith.png" alt="" />
-                        <div className="authorName">
-                            <p className="name">John Smith</p>
-                            <p className="date">15 March 2022</p>
-                        </div>
-                    </div>
+                    <Author
+                        classType={`hidden author`}
+                    />
                     <div className="buttons">
                         <span className="interaction">
                             <button className="optionsBtn">
@@ -84,46 +104,46 @@ function RecipeDetails({ myRecipes }) {
                 </div>
             </section>
 
-            {/*  <section className="recipePincipal">
+            <section className="recipePincipal">
                 <div className="principalHeader">
                     <div className="recipeVid">
-                        <img src="{recipe.image ? recipe.image : noPhoto}" alt="" className="recipeVidImg" />
-                        <img src="Imagenes/recipeDetailsPage/Group 884.png" alt="" className="recipeVidIcon" />
+                        <img src={myRecipe.image ? myRecipe.image : noPhoto} alt="" className="recipeVidImg" />
+                        <img src="/videoPlayIcon.png" alt="" className="recipeVidIcon" />
                     </div>
                     <div className="nutrition">
                         <div className="nutritionBox">
                             <h2>Nutrition Information</h2>
                             <span className="nutData">
                                 <p className="nutDataType">Calories</p>
-                                <p className="nutDataValue">{recipe.nutrition.nutrients.filter((value, index, array) => {
+                                <p className="nutDataValue">{myRecipe?.nutrition?.nutrients?.filter((value, index, array) => {
                                     return value.name == 'Calories'
                                 })[0].amount} kcal </p>
                             </span>
                             <hr />
                             <span className="nutData">
                                 <p className="nutDataType">Total Fat</p>
-                                <p className="nutDataValue">{recipe.nutrition.nutrients.filter((value, index, array) => {
+                                <p className="nutDataValue">{myRecipe?.nutrition?.nutrients?.filter((value, index, array) => {
                                     return value.name == 'Fat'
                                 })[0].amount} g </p>
                             </span>
                             <hr />
                             <span className="nutData">
                                 <p className="nutDataType">Proteins</p>
-                                <p className="nutDataValue">{recipe.nutrition.nutrients.filter((value, index, array) => {
+                                <p className="nutDataValue">{myRecipe?.nutrition?.nutrients?.filter((value, index, array) => {
                                     return value.name == 'Protein'
                                 })[0].amount} g </p>
                             </span>
                             <hr />
                             <span className="nutData">
                                 <p className="nutDataType">Carbohydrates</p>
-                                <p className="nutDataValue">{recipe.nutrition.nutrients.filter((value, index, array) => {
+                                <p className="nutDataValue">{myRecipe?.nutrition?.nutrients?.filter((value, index, array) => {
                                     return value.name == 'Carbohydrates'
                                 })[0].amount} g</p>
                             </span>
                             <hr />
                             <span className="nutData">
                                 <p className="nutDataType">Cholesterol</p>
-                                <p className="nutDataValue">{recipe.nutrition.nutrients.filter((value, index, array) => {
+                                <p className="nutDataValue">{myRecipe?.nutrition?.nutrients?.filter((value, index, array) => {
                                     return value.name == 'Cholesterol'
                                 })[0].amount} mg</p>
                             </span>
@@ -131,22 +151,22 @@ function RecipeDetails({ myRecipes }) {
                         </div>
                     </div>
                 </div>
-                <p className="principalDescription">{recipe.summary}</p>
+                <p className="principalDescription">{myRecipe.summary}</p>
             </section>
 
 
             <section className="ingredients">
                 <div className="list">
-                    <h3>Ingredients</h3>
+                    <h3 className="detailsH3">Ingredients</h3>
                     <div className="ing">
                         <p>For main dish</p>
                         <ul className="ingridientsList">
-                            {recipe.extendedIngredients.map(ingredient => {
+                            {myRecipe?.extendedIngredients?.map((ingredient, index) => {
                                 return (
-                                    <li>
+                                    <li key={index}>
                                         <span>
-                                            <input type="checkbox" name="" id="check" className="check" />
-                                            <label for="check">{ingredient.original}</label>
+                                            <input type="checkbox" name="" id={index} className="check" />
+                                            <label htmlFor={index}>{ingredient.original}</label>
                                         </span>
                                         <hr />
                                     </li>)
@@ -159,9 +179,23 @@ function RecipeDetails({ myRecipes }) {
                     <div className="otherRecipesInSection">
 
                     </div>
-                    <img src="Imagenes/recipies/Ads.png" alt="" className="ads" />
+                    <img src="/ad.png" alt="" className="ads" />
                 </div>
-            </section> */}
+            </section>
+            <Inbox />
+            <section className="otherRecipes">
+                <h6 className="detailsH6">You may also like this recipes</h6>
+                <div className="otherRecipesGrid">
+                    {otherRecipes.map(recipe => {
+                        return (<RecipeBox
+                            key={recipe.id}
+                            recipe={recipe}
+                            setMyFavorites={setMyFavorites}
+                            url={`/recipe/${recipe.id}`}
+                        />)
+                    })}
+                </div>
+            </section>
         </main>
     )
 }

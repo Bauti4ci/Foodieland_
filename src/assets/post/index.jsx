@@ -1,38 +1,40 @@
+import "./styles.css"
+
 function Post({ post }) {
     return (
-        <article>
-            <div>
-                <div>
-                    <img src="/foodiePFP.png" alt="" />
+        <article className="postBox">
+            <div className="postHeader">
+                <div className="postHeaderLeft">
+                    <img src="/foodiePFP.png" alt="" className="postFoodie" />
                     <span>
-                        <p>Foodieland. <img src="/verifed.svg" alt="" /></p>
-                        <p>Tokio, Japan</p>
+                        <p className="postAuthor">Foodieland. <img src="/verifed.svg" alt="" className="verifed" /></p>
+                        <p className="postLocation">Tokio, Japan</p>
                     </span>
                 </div>
-                <img src="/moreicon.svg" alt="" />
+                <img src="/moreicon.svg" alt="" className="moreIcon" />
             </div>
 
-            <div>
-                <img src={post.image} alt="" />
-                <img src="Svg/post/photonum.svg" alt="" />
-            </div>
 
-            <div>
-                <div>
-                    <div>
+            <img src={post.image} alt="" className="postImg" />
+            <img src="/photonum.svg" alt="" className="photoNum" />
+
+
+            <div className="postFoot">
+                <div className="postInteraction">
+                    <div className="lsc">
                         <img src="/like.svg" alt="" />
                         <img src="/comment.svg" alt="" />
                         <img src="/share.svg" alt="" />
                     </div>
-                    <img src="/pagination.svg" alt="" />
+                    <img src="/pagination.svg" alt="" className="pagination" />
                     <img src="/save.svg" alt="" />
                 </div>
-                <div>
+                <div className="likes">
                     <img src="/likePFP.png" alt="" />
                     <p>Liked by <b>craig_love</b> and <b>44,686 others</b></p>
                 </div>
-                <p><b>Foodieland.</b> {post.caption}</p>
-                <p>September 19</p>
+                <p className="caption"><b>Foodieland.</b> {post.caption}</p>
+                <p className="postDate">September 19</p>
             </div>
         </article>
     )

@@ -28,7 +28,7 @@ function RecipeBox({ recipe, setMyFavorites, url }) {
             <div className="recipesDetails">
                 <span className='detail'>
                     <img src="/timer.svg" alt="" className="recipesIcons" />
-                    <p>{recipe.readyInMinutes}Minutes</p>
+                    <p>{recipe.readyInMinutes} Minutes</p>
                 </span>
                 <span className='detail'>
                     <img src="/forknife.svg" alt="" className="recipesIcons" />

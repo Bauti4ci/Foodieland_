@@ -7,33 +7,23 @@ import RecipeDetails from './assets/recipeDetails'
 
 
 function App() {
-  const [myRecipes, setMyRecipe] = useState([])
+  const [myFavorites, setMyFavorites] = useState(() => {
+    return JSON.parse(localStorage.getItem('favorites')) || []
+  })
 
   useEffect(() => {
-
-    const savedRecipes = JSON.parse(sessionStorage.getItem('jsonRecipes')) || [];
-
-    if (savedRecipes.length === 0) {
-      fetch('https://api.spoonacular.com/recipes/random?number=17&apiKey=3050a0340db147f8aa71da16e4c24be9')
-        .then(response => response.json())
-        .then(recipes => {
-          sessionStorage.setItem('jsonRecipes', JSON.stringify(recipes.recipes))
-          setMyRecipe(recipes.recipes)
-        });
-    } else {
-      setMyRecipe(savedRecipes)
-    }
-  }, []);
+    localStorage.setItem('favorites', JSON.stringify(myFavorites));
+  }, [myFavorites])
 
   return (
     <>
       <Routes>
         <Route path='/' element={<Page />}>
-          <Route index element={<Home myRecipes={myRecipes} />}
+          <Route index element={<Home setMyFavorites={setMyFavorites} />}
           />
           <Route
             path='/recipe/:id'
-            element={<RecipeDetails myRecipes={myRecipes} />}
+            element={<RecipeDetails setMyFavorites={setMyFavorites} />}
           />
         </Route>
       </Routes>
