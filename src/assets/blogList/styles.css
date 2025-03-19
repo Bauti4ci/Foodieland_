@@ -1,0 +1,63 @@
+.blogListSection {
+    max-width: 840px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 80px;
+}
+
+.blogListSection form {
+    display: flex;
+}
+
+.recipeBlogList {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.blogSearch {
+    width: 100%;
+    max-width: 700px;
+    height: 80px;
+    padding: 18px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    margin-top: 56px;
+}
+
+.blogSearch button {
+    max-width: 160px;
+    height: 60px;
+}
+
+.blogSearch input {
+    border: 0px solid rgba(0, 0, 0, 0);
+    width: 210px;
+}
+
+.blogList {
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.blogList .miniRecipes {
+    max-height: 120px;
+}
+
+.blogList .otherRecipesInSection {
+    max-height: 480px;
+}
+
+.blogList .otherRecipesInDetails {
+    max-height: 1000px;
+}

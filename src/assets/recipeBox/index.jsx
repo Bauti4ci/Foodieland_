@@ -1,22 +1,28 @@
 import { Link, useNavigate } from 'react-router-dom'
 import './styles.css'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { FavoritesContext } from '../favoriteContext';
 
 
-function RecipeBox({ recipe, setMyFavorites, url, myFavorites }) {
-    const [favBtn, setFavBtn] = useState("/notFavorite.svg")
+function RecipeBox({ recipe, url, }) {
+    const [isFavorite, setIsFavorite] = useState(false)
+    const { myFavorites, setMyFavorites } = useContext(FavoritesContext)
 
     let navigate = useNavigate();
 
-    const favorites = () => {
-        setMyFavorites(prevFavorites => {
-            if (prevFavorites.includes(recipe.id)) {
-                return prevFavorites.filter(id => id !== recipe.id)
-            } else {
-                return [...prevFavorites, recipe.id]
-            }
-        })
-    }
+    useEffect(() => {
+        setIsFavorite(myFavorites.includes(recipe.id));
+    }, [myFavorites, recipe.id]);
+
+    const favorites = (e) => {
+        e.stopPropagation();
+
+        if (isFavorite) {
+            setMyFavorites(myFavorites.filter(id => id !== recipe.id));
+        } else {
+            setMyFavorites([...myFavorites, recipe.id]);
+        }
+    };
 
     const noPhoto = '/noPhoto.jpg'
 
@@ -24,7 +30,7 @@ function RecipeBox({ recipe, setMyFavorites, url, myFavorites }) {
         <div className="recipesBox" id={recipe.id} onClick={() => navigate(url)}>
 
             <img src={recipe.image ? recipe.image : noPhoto} alt="" className="gridPhoto" />
-            <img src={favBtn} alt="" className={`saves heart`} onClick={favorites} />
+            <img src={isFavorite ? "/favorite.svg" : "/notFavorite.svg"} alt="" className={`saves heart`} onClick={favorites} />
 
             <p className="recipeName">{recipe.title}</p>
             <div className="recipesDetails">

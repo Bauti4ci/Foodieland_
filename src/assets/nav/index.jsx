@@ -17,6 +17,10 @@ function Nav() {
 
     }
 
+    const reload = () => {
+        window.scrollTo(0, 0)
+    }
+
     return (
         <header id="header">
             <nav>
@@ -24,10 +28,10 @@ function Nav() {
 
                 <div className="menu">
                     <ul>
-                        <Link to="/" className="navbtn">Home</Link>
+                        <Link to="/" className="navbtn" onClick={reload}>Home</Link>
                         <Link to="/" className="navbtn">Recipies</Link>
-                        <Link to="/" className="navbtn">Blog</Link>
-                        <Link to="/" className="navbtn">Contact</Link>
+                        <Link to="/blog" className="navbtn">Blog</Link>
+                        <Link to="/contact" className="navbtn">Contact</Link>
                         <Link to="/" className="navbtn">About us</Link>
                     </ul>
                 </div>
@@ -47,8 +51,8 @@ function Nav() {
                     <ul>
                         <Link to="/" className="navbtn">Home</Link>
                         <Link to="/" className="navbtn">Recipies</Link>
-                        <Link to="/" className="navbtn">Blog</Link>
-                        <Link to="/" className="navbtn">Contact</Link>
+                        <Link to="/blog" className="navbtn">Blog</Link>
+                        <Link to="/contact" className="navbtn">Contact</Link>
                         <Link to="/" className="navbtn">About us</Link>
                     </ul>
                 </div>

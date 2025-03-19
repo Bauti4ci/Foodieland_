@@ -4,6 +4,7 @@
     height: auto;
     max-height: 434px;
     pointer-events: none;
+    order: 4
 }
 
 /* start */
@@ -100,6 +101,10 @@ h2 {
     flex-wrap: wrap;
     gap: 40px;
     width: 100%;
+}
+
+.recipesGrid :nth-child(9) {
+    order: 6;
 }
 
 .recipesGrid :hover {

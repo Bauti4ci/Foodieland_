@@ -383,11 +383,16 @@ h2 {
     flex-direction: column;
     margin-top: 160px;
     max-width: 1600px;
+    align-content: center;
+    align-items: center;
 }
 
 .otherRecipesGrid {
     display: flex;
     justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
     flex-wrap: wrap;
     gap: 40px;
     margin-top: 80px;
@@ -398,6 +403,13 @@ h2 {
     transform: scale(1.05);
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.041);
 }
+
+@media (max-width: 1440px) {
+    .otherRecipesGrid {
+        width: 80%;
+    }
+}
+
 
 @media (max-width: 1030px) {
     .header {

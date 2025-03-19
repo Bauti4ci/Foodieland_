@@ -1,0 +1,66 @@
+.blogRecipe {
+    max-width: 840px;
+    display: flex;
+    gap: 40px;
+}
+
+.blogRecipeImg {
+    max-width: 290px;
+    max-height: 200px;
+    border-radius: 20px;
+}
+
+.leftBlogRecipe {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 13px 0px;
+}
+
+.blogInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.blogAuthor {
+    display: flex;
+    gap: 24px;
+    text-align: center;
+    max-height: 40px;
+    align-content: center;
+    align-items: center;
+}
+
+.blogAuthor span {
+    display: flex;
+    gap: 16px;
+    align-content: center;
+    align-items: center;
+}
+
+.blogAuthor img {
+    width: 40px;
+    height: 40px;
+}
+
+.blogRecipeTittle {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: -4%;
+
+}
+
+.blogRecipeContext {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+
+}
+
+.blogAuthor hr {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 40px;
+}

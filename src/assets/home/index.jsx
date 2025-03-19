@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import axios from "axios"
 import HotRecipes from "../hotRecipes"
 import Categorie from '../categorie'
 import RecipeBox from '../recipeBox'
@@ -9,30 +10,46 @@ import categories from '../categorie/categories.json'
 import "./styles.css"
 
 
-function Home({ setMyFavorites, myFavorites }) {
+function Home() {
     const [myRecipes, setMyRecipes] = useState([])
 
     const hotRecipes = myRecipes.slice(0, 1)
     const mainRecipes = myRecipes.slice(1, 9)
     const otherRecipes = myRecipes.slice(9)
 
-    useEffect(() => {
+    /*  useEffect(() => {
+ 
+         const savedRecipes = JSON.parse(sessionStorage.getItem('jsonRecipes')) || [];
+ 
+         if (savedRecipes.length === 0) {
+             fetch('https://api.spoonacular.com/recipes/random?number=17&apiKey=178a79a57ae64393823744c2e5e76fa5')
+                 .then(response => response.json())
+                 .then(recipes => {
+                     sessionStorage.setItem('jsonRecipes', JSON.stringify(recipes.recipes))
+                     setMyRecipes(recipes.recipes)
+                 });
+         } else {
+             setMyRecipes(savedRecipes)
+         }
+     }, []); */
 
-        const savedRecipes = JSON.parse(sessionStorage.getItem('jsonRecipes')) || [];
+    const getRecipes = async () => {
+        const savedRecipes = JSON.parse(sessionStorage.getItem("jsonRecipes")) || [];
 
+
+        /*implementar try catch*/
         if (savedRecipes.length === 0) {
-            fetch('https://api.spoonacular.com/recipes/random?number=17&apiKey=178a79a57ae64393823744c2e5e76fa5')
-                .then(response => response.json())
-                .then(recipes => {
-                    sessionStorage.setItem('jsonRecipes', JSON.stringify(recipes.recipes))
-                    setMyRecipes(recipes.recipes)
-                });
+            const response = await axios.get("https://api.spoonacular.com/recipes/random?number=17&apiKey=178a79a57ae64393823744c2e5e76fa5");
+            sessionStorage.setItem("jsonRecipes", JSON.stringify(response.data.recipes));
+            setMyRecipes(response.data.recipes);
         } else {
-            setMyRecipes(savedRecipes)
+            setMyRecipes(savedRecipes);
         }
-    }, []);
+    };
 
-    console.log(myRecipes)
+    useEffect(() => {
+        getRecipes()
+    }, []);
 
 
     return (
@@ -71,12 +88,10 @@ function Home({ setMyFavorites, myFavorites }) {
                         return (<RecipeBox
                             key={recipe.id}
                             recipe={recipe}
-                            myFavorites={myFavorites}
-                            setMyFavorites={setMyFavorites}
                             url={`/recipe/${recipe.id}`}
                         />)
                     })}
-
+                    <img src="/ad.png" className="ad" />
                 </div>
             </section>
             <section className="learnMore" id="learn">
@@ -125,7 +140,6 @@ function Home({ setMyFavorites, myFavorites }) {
                         return (<RecipeBox
                             key={recipe.id}
                             recipe={recipe}
-                            setMyFavorites={setMyFavorites}
                             url={`/recipe/${recipe.id}`}
                         />)
                     })}

@@ -7,6 +7,8 @@ function HotRecipes({ recipe, url }) {
 
     let navigate = useNavigate();
 
+    const noPhoto = '/noPhoto.jpg'
+
     return (
         <>
             <article className={`start hiddenMobile`} id={recipe.id} style={{
@@ -22,7 +24,7 @@ function HotRecipes({ recipe, url }) {
                     <div className="labels">
                         <span className="secondbtn">
                             <img src="/timer.svg" alt="" />
-                            <p>{recipe.readyInMinutes}Minutes</p>
+                            <p>{recipe.readyInMinutes} Minutes</p>
                         </span>
                         <span className="secondbtn">
                             <img src="/forknife.svg" alt="" />

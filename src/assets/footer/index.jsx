@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./styles.css"
 
 function Footer() {
@@ -12,10 +13,10 @@ function Footer() {
                         </div>
                         <div className="menu footerMenu">
                             <ul>
-                                <a className="navbtn">Recipies</a>
-                                <a className="navbtn">Blog</a>
-                                <a className="navbtn">Contact</a>
-                                <a className="navbtn">About us</a>
+                                <Link to={"/"} className="navbtn">Recipies</Link>
+                                <Link to={"/"} className="navbtn">Blog</Link>
+                                <Link to={"/contact"} className="navbtn">Contact</Link>
+                                <Link to={"/"} className="navbtn">About us</Link>
                             </ul>
                         </div>
                     </div>

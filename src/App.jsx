@@ -4,6 +4,8 @@ import './App.css'
 import Page from './assets/page';
 import Home from './assets/home'
 import RecipeDetails from './assets/recipeDetails'
+import Contact from './assets/contactPage';
+import BlogList from './assets/blogList';
 
 
 function App() {
@@ -24,6 +26,10 @@ function App() {
           <Route
             path='/recipe/:id'
             element={<RecipeDetails setMyFavorites={setMyFavorites} myFavorites={myFavorites} />}
+          />
+          <Route path='/contact' element={<Contact setMyFavorites={setMyFavorites} myFavorites={myFavorites} />}
+          />
+          <Route path='/blog' element={<BlogList />}
           />
         </Route>
       </Routes>

@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import axios from "axios"
 import './styles.css'
 import { useEffect, useState } from "react";
 import RecipeBox from '../recipeBox'
@@ -6,7 +7,7 @@ import Inbox from '../inbox'
 import Author from '../author';
 import MiniRecipes from "../miniRecipes";
 
-function RecipeDetails({ setMyFavorites, myFavorites }) {
+function RecipeDetails() {
     let { id } = useParams();
     const [myRecipe, setMyRecipe] = useState({});
     const [secRecipes, setSecRecipes] = useState([]);
@@ -14,23 +15,47 @@ function RecipeDetails({ setMyFavorites, myFavorites }) {
     const miniSideRecipes = secRecipes.slice(0, 3)
     const otherRecipes = secRecipes.slice(3)
 
-
     const noPhoto = '/noPhoto.jpg'
 
+    const getRecipeInfo = async () => {
+
+        /*implementar try catch*/
+        const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=178a79a57ae64393823744c2e5e76fa5`)
+        setMyRecipe(response.data)
+    }
+
     useEffect(() => {
-        fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=178a79a57ae64393823744c2e5e76fa5`)
+        window.scrollTo(0, 0);
+
+        getRecipeInfo()
+
+        /* fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=178a79a57ae64393823744c2e5e76fa5`)
             .then(response => response.json())
             .then(recipe => {
                 setMyRecipe(recipe)
-            });
+            }); */
 
     }, [id]);
 
-    console.log(myRecipe)
+    const getSecRecipes = async () => {
+        const savedSecRecipes = JSON.parse(sessionStorage.getItem('jsonSecRecipes')) || [];
+
+        /*implementar try catch */
+        if (savedSecRecipes.length === 0) {
+            const response = await axios.get('https://api.spoonacular.com/recipes/random?number=7&apiKey=3050a0340db147f8aa71da16e4c24be9')
+            sessionStorage.setItem('jsonSecRecipes', JSON.stringify(response.data.recipes))
+            setSecRecipes(response.data.recipes)
+        } else {
+            setSecRecipes(savedSecRecipes)
+        }
+    }
 
     useEffect(() => {
+        window.scrollTo(0, 0)
 
-        const savedSecRecipes = JSON.parse(sessionStorage.getItem('jsonSecRecipes')) || [];
+        getSecRecipes()
+
+        /* const savedSecRecipes = JSON.parse(sessionStorage.getItem('jsonSecRecipes')) || [];
 
         if (savedSecRecipes.length === 0) {
             fetch('https://api.spoonacular.com/recipes/random?number=7&apiKey=3050a0340db147f8aa71da16e4c24be9')
@@ -41,14 +66,8 @@ function RecipeDetails({ setMyFavorites, myFavorites }) {
                 });
         } else {
             setSecRecipes(savedSecRecipes)
-        }
+        } */
     }, []);
-
-    console.log(myRecipe);
-
-
-
-
 
     return (
         <main>
@@ -65,7 +84,7 @@ function RecipeDetails({ setMyFavorites, myFavorites }) {
                                 <img src="/timer.svg" alt="" className="icons" />
                                 <div className="detailContext">
                                     <p className="timeType">PREP TIME</p>
-                                    <p className="time">{myRecipe.preparationMinutes}</p>
+                                    <p className="time">{myRecipe.preparationMinutes} Minutes</p>
                                 </div>
                             </div>
                             <span className="dividers"></span>
@@ -73,7 +92,7 @@ function RecipeDetails({ setMyFavorites, myFavorites }) {
                                 <img src="/timer.svg" alt="" className="icons" />
                                 <div className="detailContext">
                                     <p className="timeType">COCK TIME</p>
-                                    <p className="time">{myRecipe.cookingMinutes}</p>
+                                    <p className="time">{myRecipe.cookingMinutes} Minutes</p>
                                 </div>
                             </div>
                             <span className="dividers"></span>
@@ -199,7 +218,6 @@ function RecipeDetails({ setMyFavorites, myFavorites }) {
                         return (<RecipeBox
                             key={recipe.id}
                             recipe={recipe}
-                            setMyFavorites={setMyFavorites}
                             url={`/recipe/${recipe.id}`}
                         />)
                     })}
