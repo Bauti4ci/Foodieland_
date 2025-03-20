@@ -61,3 +61,20 @@
 .blogList .otherRecipesInDetails {
     max-height: 1000px;
 }
+
+.pageNumberSelector {
+    max-width: 544px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.pagebtn {
+    width: 64px;
+    height: 64px;
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+}

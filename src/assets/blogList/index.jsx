@@ -4,22 +4,32 @@ import "./styles.css"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import MiniRecipes from "../miniRecipes";
+import BlogPagination from "../blogPagination";
 
 function BlogList() {
     const [bListRecipes, setBListRecipes] = useState([]);
     const [bListMiniRecipes, setBListMiniRecipes] = useState([]);
+    const [pages, setPages] = useState([])
+    const [page, setPage] = useState(1)
+
+    const recipesNumber = 6
+
 
     const getBListRecipes = async () => {
-        const savedBListRecipes = JSON.parse(sessionStorage.getItem('jsonBlogListRecipes')) || [];
-
-        if (savedBListRecipes.length === 0) {
-            const response = await axios.get('https://api.spoonacular.com/recipes/random?number=6&apiKey=3050a0340db147f8aa71da16e4c24be9')
-            sessionStorage.setItem('jsonBlogListRecipes', JSON.stringify(response.data.recipes))
-            setBListRecipes(response.data.recipes)
-        } else {
-            setBListRecipes(savedBListRecipes)
+        console.log('getBListRecipes');
+        const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?number=${recipesNumber}&offset=${(page - 1) * recipesNumber}&apiKey=3050a0340db147f8aa71da16e4c24be9`)
+        setBListRecipes(response.data.results)
+        const pagesNumber = response.data.totalResults / recipesNumber
+        const totalPages = []
+        for (let i = 1; i <= pagesNumber; i++) {
+            totalPages.push(i)
         }
+        setPages(totalPages)
     }
+
+
+
+
     const getBListMiniRecipes = async () => {
         const savedBListMiniRecipes = JSON.parse(sessionStorage.getItem('jsonBlogListMiniRecipes')) || [];
 
@@ -37,7 +47,7 @@ function BlogList() {
 
         getBListRecipes()
 
-    }, []);
+    }, [page]);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -82,6 +92,12 @@ function BlogList() {
                     <img src="/ad.png" alt="" className="ads" />
                 </div>
             </section>
+
+            <BlogPagination
+                pages={pages}
+                page={page}
+                setPage={setPage}
+            />
 
             <Inbox />
 
