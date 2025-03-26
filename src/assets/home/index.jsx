@@ -1,49 +1,43 @@
-import { useState, useEffect } from "react"
+import "./styles.css"
+import { useState, useEffect, useContext } from "react"
+import { Link } from "react-router-dom"
 import axios from "axios"
 import HotRecipes from "../hotRecipes"
+import categories from '../categorie/categories.json'
 import Categorie from '../categorie'
 import RecipeBox from '../recipeBox'
 import Post from '../post'
-import Inbox from '../inbox'
 import posts from '../post/posts.json'
-import categories from '../categorie/categories.json'
-import "./styles.css"
-
+import Inbox from '../inbox'
 
 function Home() {
     const [myRecipes, setMyRecipes] = useState([])
+    const [loading, setLoading] = useState(true);
 
     const hotRecipes = myRecipes.slice(0, 1)
     const mainRecipes = myRecipes.slice(1, 9)
     const otherRecipes = myRecipes.slice(9)
 
-    /*  useEffect(() => {
- 
-         const savedRecipes = JSON.parse(sessionStorage.getItem('jsonRecipes')) || [];
- 
-         if (savedRecipes.length === 0) {
-             fetch('https://api.spoonacular.com/recipes/random?number=17&apiKey=178a79a57ae64393823744c2e5e76fa5')
-                 .then(response => response.json())
-                 .then(recipes => {
-                     sessionStorage.setItem('jsonRecipes', JSON.stringify(recipes.recipes))
-                     setMyRecipes(recipes.recipes)
-                 });
-         } else {
-             setMyRecipes(savedRecipes)
-         }
-     }, []); */
+    const loaders = [0, 1, 2, 3, 4, 5];
+    const loader = [0]
 
     const getRecipes = async () => {
         const savedRecipes = JSON.parse(sessionStorage.getItem("jsonRecipes")) || [];
+        setLoading(true)
 
-
-        /*implementar try catch*/
         if (savedRecipes.length === 0) {
-            const response = await axios.get("https://api.spoonacular.com/recipes/random?number=17&apiKey=178a79a57ae64393823744c2e5e76fa5");
-            sessionStorage.setItem("jsonRecipes", JSON.stringify(response.data.recipes));
-            setMyRecipes(response.data.recipes);
+            try {
+                const response = await axios.get("https://api.spoonacular.com/recipes/random?number=17&apiKey=178a79a57ae64393823744c2e5e76fa5");
+                sessionStorage.setItem("jsonRecipes", JSON.stringify(response.data.recipes));
+                setMyRecipes(response.data.recipes);
+            } catch (error) {
+                console.error("Error loading recipes:", error)
+            } finally {
+                setLoading(false)
+            }
         } else {
             setMyRecipes(savedRecipes);
+            setLoading(false)
         }
     };
 
@@ -55,12 +49,19 @@ function Home() {
     return (
         <main>
             <section className="startSection">
-                {hotRecipes.map(recipe => {
-                    return (<HotRecipes
-                        key={recipe.id}
-                        recipe={recipe}
-                        url={`/recipe/${recipe.id}`} />)
-                })}
+                {loading
+                    ? loader.map((index) => (
+                        <div key={index} className="hotRecipeLoader">
+                        </div>
+                    ))
+
+                    : hotRecipes.map((recipe) => (
+                        <HotRecipes
+                            key={recipe.id}
+                            recipe={recipe}
+                            url={`/recipe/${recipe.id}`}
+                        />
+                    ))}
             </section>
 
             <section className="categories">
@@ -84,13 +85,19 @@ function Home() {
                     <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
                 </div>
                 <div className="recipesGrid">
-                    {mainRecipes.map((recipe) => {
-                        return (<RecipeBox
-                            key={recipe.id}
-                            recipe={recipe}
-                            url={`/recipe/${recipe.id}`}
-                        />)
-                    })}
+                    {loading
+                        ? loaders.map((index) => (
+                            <div key={index} className="recipeLoader">
+                            </div>
+                        ))
+
+                        : mainRecipes.map((recipe) => (
+                            <RecipeBox
+                                key={recipe.id}
+                                recipe={recipe}
+                                url={`/recipe/${recipe.id}`}
+                            />
+                        ))}
                     <img src="/ad.png" className="ad" />
                 </div>
             </section>
@@ -99,13 +106,18 @@ function Home() {
                     <h4>Everyone can be a<br /> chef in their own kitchen</h4>
                     <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do<br />eiusmod tempor incididunt ut
                         labore et dolore magna aliqut enim <br /> ad minim </p>
+
                     <button className="btn">
-                        <p>Learn More</p>
+                        <Link className="link" to="/guide">
+                            <p>Learn More</p>
+                        </Link>
                     </button>
                 </div>
                 <img src="/ChefOne.png" alt="" className="learnMoreRight" />
                 <button className={`hidden btn`}>
-                    <p>Learn More</p>
+                    <Link className="link" to="/guide">
+                        <p>Learn More</p>
+                    </Link>
                 </button>
             </section>
             <div className="postSection">
@@ -136,13 +148,19 @@ function Home() {
                     <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim </p>
                 </div>
                 <div className="otherRecipesGrid">
-                    {otherRecipes.map(recipe => {
-                        return (<RecipeBox
-                            key={recipe.id}
-                            recipe={recipe}
-                            url={`/recipe/${recipe.id}`}
-                        />)
-                    })}
+                    {loading
+                        ? loaders.map((index) => (
+                            <div key={index} className="recipeLoader">
+                            </div>
+                        ))
+
+                        : otherRecipes.map((recipe) => (
+                            <RecipeBox
+                                key={recipe.id}
+                                recipe={recipe}
+                                url={`/recipe/${recipe.id}`}
+                            />
+                        ))}
                 </div>
 
 

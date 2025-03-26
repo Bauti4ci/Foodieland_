@@ -4,9 +4,11 @@ import { useContext, useEffect, useState } from 'react';
 import { FavoritesContext } from '../../context/favoriteContext';
 
 
+
 function RecipeBox({ recipe, url, }) {
     const [isFavorite, setIsFavorite] = useState(false)
     const { myFavorites, setMyFavorites } = useContext(FavoritesContext)
+
 
     let navigate = useNavigate();
 

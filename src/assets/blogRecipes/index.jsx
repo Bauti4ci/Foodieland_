@@ -5,9 +5,11 @@ function BlogRecipe({ recipe, url }) {
 
     let navigate = useNavigate();
 
+    const noPhoto = '/noPhoto.jpg'
+
     return (
         <article className="blogRecipe" id={recipe.id} onClick={() => navigate(url)}>
-            <img src={recipe.image} alt="" className="blogRecipeImg" />
+            <img src={recipe.image ? recipe.image : noPhoto} alt="" className="blogRecipeImg" />
             <div className="leftBlogRecipe">
                 <div className="blogInfo">
                     <p className="blogRecipeTittle">{recipe.title}</p>

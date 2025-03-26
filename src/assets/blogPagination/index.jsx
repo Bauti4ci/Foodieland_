@@ -1,30 +1,30 @@
 function BlogPagination({ pages, page, setPage }) {
-    // Determinamos el rango de 5 páginas a mostrar
-    const pageStart = Math.floor((page - 1) / 5) * 5;
-    const visiblePages = pages.slice(pageStart, pageStart + 5);
+    const pagesPerBlock = 5;
+    const pageStart = Math.floor((page - 1) / pagesPerBlock) * pagesPerBlock;
+    const visiblePages = pages.slice(pageStart, pageStart + pagesPerBlock);
 
-    // Función para ir a la página anterior
-    const handlePrev = () => {
-        if (page > 1) {
-            setPage(page - 1);
+
+    const handleNext = () => {
+        if (pageStart + pagesPerBlock < pages.length) {
+            setPage(pageStart + pagesPerBlock + 1);
         }
     };
 
-    // Función para ir a la página siguiente
-    const handleNext = () => {
-        if (page < pages.length) {
-            setPage(page + 1);
+
+    const handlePrev = () => {
+        if (pageStart > 0) {
+            setPage(pageStart - pagesPerBlock + 1);
         }
     };
 
     return (
         <div className="pageNumberSelector">
-            <button
-                className="pagebtn"
-                onClick={handlePrev}
-                disabled={page === 1}
+            <button className="pagebtn" onClick={handlePrev} disabled={pageStart === 0}
+                style={{
+                    display: pageStart === 0 ? 'none' : 'block'
+                }}
             >
-                Anterior
+                <img src="/leftArrow.svg" alt="Anterior" />
             </button>
 
             {visiblePages.map((num) => (
@@ -44,9 +44,12 @@ function BlogPagination({ pages, page, setPage }) {
             <button
                 className="pagebtn"
                 onClick={handleNext}
-                disabled={page === pages.length}
+                disabled={pageStart + pagesPerBlock >= pages.length}
+                style={{
+                    display: pageStart + pagesPerBlock >= pages.length ? 'none' : 'block',
+                }}
             >
-                Siguiente
+                <img src="/rightArrow.svg" alt="Siguiente" />
             </button>
         </div>
     );

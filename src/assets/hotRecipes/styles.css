@@ -14,6 +14,16 @@
     background-color: rgba(231, 250, 254, 1);
 }
 
+.hotRecipeLoader {
+    max-width: 1280px;
+    width: 100%;
+    min-height: 640px;
+    margin: 0 40px;
+    border-radius: 45px;
+    border: 0px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(151, 151, 151, 0.158);
+}
+
 .leftstart {
     display: flex;
     flex-direction: column;

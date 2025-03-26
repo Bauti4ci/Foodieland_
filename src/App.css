@@ -62,3 +62,8 @@ section {
   transform: scale(1.05);
   box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.041);
 }
+
+.btn Link {
+  text-decoration: none;
+  color: white
+}

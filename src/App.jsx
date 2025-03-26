@@ -6,6 +6,7 @@ import Home from './assets/home'
 import RecipeDetails from './assets/recipeDetails'
 import Contact from './assets/contactPage';
 import BlogList from './assets/blogList';
+import BlogPost from './assets/blogPost';
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
           <Route path='/contact' element={<Contact setMyFavorites={setMyFavorites} myFavorites={myFavorites} />}
           />
           <Route path='/blog' element={<BlogList />}
+          />
+          <Route path='/guide' element={<BlogPost />}
           />
         </Route>
       </Routes>
