@@ -83,7 +83,8 @@ function BlogList() {
                         onChange={(e) => setSearch(e.target.value)}
                         placeholder="Search article, news or recipe..."
                     />
-                    <button className="btn" type="submit">Search</button>
+                    <button className={`btn sizeHide`} type="submit">Search</button>
+                    <button className={`btn sizeShow`} type="submit"><img src="/search.svg" alt="" /></button>
                 </form>
 
             </section>

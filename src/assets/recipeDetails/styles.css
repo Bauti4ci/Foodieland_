@@ -399,6 +399,7 @@ h2 {
     gap: 40px;
     margin-top: 80px;
     transition: ease-in-out 0.5s;
+    margin: 0 auto;
 }
 
 .otherRecipesGrid :hover {
@@ -419,7 +420,7 @@ h2 {
         width: 90%;
     }
 
-    section {
+    .detailsMain section {
         width: 95%;
         display: flex;
         justify-content: center;

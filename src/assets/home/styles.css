@@ -220,6 +220,11 @@ h5 {
 
 @media (max-width: 1024px) {
 
+    .homeMain section {
+        width: 90%;
+    }
+
+
     .recipesSec {
         width: 90%;
     }
@@ -270,6 +275,7 @@ h5 {
 }
 
 @media (max-width: 768px) {
+
     .otherRecipesTop {
         flex-direction: column;
         justify-content: center;
@@ -282,4 +288,14 @@ h5 {
     .homeH6 {
         text-align: center;
     }
+}
+
+@media (max-width: 500px) {
+
+    .topCateg {
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+
 }

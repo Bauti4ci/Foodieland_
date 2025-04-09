@@ -1,6 +1,5 @@
 .miniRecipes {
     display: flex;
-    justify-content: space-between;
     max-width: 410px;
     align-items: center;
     align-content: center;

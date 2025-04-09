@@ -21,7 +21,7 @@ function BlogPagination({ pages, page, setPage }) {
         <div className="pageNumberSelector">
             <button className="pagebtn" onClick={handlePrev} disabled={pageStart === 0}
                 style={{
-                    display: pageStart === 0 ? 'none' : 'block'
+                    visibility: pageStart === 0 ? 'hidden' : 'visible'
                 }}
             >
                 <img src="/leftArrow.svg" alt="Anterior" />

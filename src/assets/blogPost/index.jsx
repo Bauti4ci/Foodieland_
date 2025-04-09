@@ -26,7 +26,7 @@ function BlogPost() {
 
     }, []);
     return (
-        <main>
+        <main className="blogPostMain">
             <section className="blogPostTop">
                 <h1>Full Guide to Becoming a Professional Chef</h1>
                 <div className="blogAuthor">

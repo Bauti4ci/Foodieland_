@@ -70,7 +70,7 @@ function RecipeDetails() {
     }, []);
 
     return (
-        <main>
+        <main className="detailsMain">
             <section className="header">
                 <div className="title">
                     <h1>{myRecipe.title}</h1>

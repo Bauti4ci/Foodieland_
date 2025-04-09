@@ -47,7 +47,7 @@ function Home() {
 
 
     return (
-        <main>
+        <main className="homeMain">
             <section className="startSection">
                 {loading
                     ? loader.map((index) => (
